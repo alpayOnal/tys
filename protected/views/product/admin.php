@@ -102,8 +102,8 @@ $this->widget('DataGrid', array('id' => 'product-grid', 'itemsCssClass' => 'data
         'edit' => array
         (
             'label'=>'Düzenle',
-            'liclass'=>'color-icons hammer_screwdriver_co',
-            'url'=>'Yii::app()->createUrl("product/delete", array("id"=>$data->product_id))',
+            'iclass'=>'',
+            'url'=>'Yii::app()->createUrl("product/update", array("id"=>$data->product_id))',
             'options'=>array('class'=>'btn'),
         ),
         'remove' => array

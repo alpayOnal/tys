@@ -28,8 +28,7 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('tax_rate')); ?>:</b>
 	<?php echo CHtml::encode($data->tax_rate); ?>
 	<br />
-
-	<?php /*
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('cost_price')); ?>:</b>
 	<?php echo CHtml::encode($data->cost_price); ?>
 	<br />
@@ -52,8 +51,9 @@
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('type')); ?>:</b>
 	<?php echo CHtml::encode($data->type); ?>
+	<br />	<b><?php echo CHtml::encode($data->getAttributeLabel('description')); ?>:</b>
+	<?php echo CHtml::encode($data->description); ?>
 	<br />
 
-	*/ ?>
 
 </div>

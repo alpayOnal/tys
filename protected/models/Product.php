@@ -67,7 +67,7 @@ class Product extends CActiveRecord
       // The following rule is used by search().
       // Please remove those attributes that should not be searched.
       array(
-        'product_id, product_code, product_name, group_id, brand_id, tax_rate, cost_price, sale_price, currency, quantity, image, type',
+        'product_id, product_code, product_name, group_id, brand_id, tax_rate, cost_price, sale_price, currency, quantity, image, type,description',
         'safe', 'on' => 'search'));
   }
 
@@ -92,7 +92,7 @@ class Product extends CActiveRecord
       'group_id' => 'Grup', 'group_name' => "Grup Adı", 'brand_id' => 'Marka',
       'tax_rate' => 'KDV(%)', 'cost_price' => 'Alış Fiyatı(KDV Hariç)',
       'sale_price' => 'Satış Fiyatı(KDV Dahil)', 'currency' => 'Para Birimi', 'quantity' => 'Adet',
-      'image' => 'Resim', 'type' => 'Tür');
+      'image' => 'Resim', 'type' => 'Tür','description'=>"Açıklama");
   }
 
   /**
@@ -116,6 +116,7 @@ class Product extends CActiveRecord
     $criteria->compare('quantity', $this->quantity);
     $criteria->compare('image', $this->image, true);
     $criteria->compare('type', $this->type, true);
+    $criteria->compare('description', $this->description, true);
     return new CActiveDataProvider($this, array('criteria' => $criteria,
       'sort' => array('attributes' => array('product_id', 'product_name')),  // Attributes has to be row name of my sql query result
       'pagination' => array('pageSize' => 5)));
@@ -141,6 +142,7 @@ class Product extends CActiveRecord
     $criteria->compare('quantity', $this->quantity);
     $criteria->compare('image', $this->image, true);
     $criteria->compare('type', $this->type, true);
+    $criteria->compare('description', $this->description, true);
     return new CActiveDataProvider($this, array('criteria' => $criteria,
       'sort' => array('attributes' => array('product_id', 'product_name')),  // Attributes has to be row name of my sql query result
       'pagination' => array('pageSize' => 5)));

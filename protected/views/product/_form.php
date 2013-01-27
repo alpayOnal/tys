@@ -83,6 +83,13 @@ $form = $this->beginWidget('CActiveForm', array('id' => 'product-form',
 		<?php //echo $form->selectField($model,'type',array('class'=>"input-xlarge",'size'=>10,'maxlength'=>10)); ?>
 		<?php echo $form->error($model,'type'); ?>
 	</div>
+      <div class="control-group">
+		<?php echo $form->labelEx($model,'description',array('class'=>"control-label")); ?><div class="controls">
+		    <?php echo $form->textArea($model,'description', array('class'=>"input-xlarge",'rows'=>"6",'cols'=>"400")/*, array('prompt'=>'Türü seçiniz')*/); ?>
+</div>
+		<?php //echo $form->selectField($model,'type',array('class'=>"input-xlarge",'size'=>10,'maxlength'=>10)); ?>
+		<?php echo $form->error($model,'description'); ?>
+	</div>
       <div class="form-actions">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Kaydet' : 'Güncelle',array('class'=>"btn btn-primary")); ?>
 	</div>
