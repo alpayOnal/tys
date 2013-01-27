@@ -87,8 +87,8 @@
 
 .grid-view .button-column
 {
-	text-align: center;
-	width: 60px;
+	text-align: right;
+	/*width: 6px;*/
 }
 
 .grid-view .button-column img
@@ -124,7 +124,7 @@
 .grid-view .filters input,
 .grid-view .filters select
 {
-	width: 100%;
+	width: 250px;
 	border: 1px solid #ccc;
 }
 

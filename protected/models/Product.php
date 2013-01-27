@@ -18,14 +18,11 @@
  */
 class Product extends CActiveRecord
 {
-
-
   var $brands;
-
   var $groups;
 
-
-  public function init(){
+  public function init()
+  {
     parent::init();
     $this->groups = CHtml::listData(ProductGroup::model()->findAllBySql('SELECT * from product_groups'), 'group_id', 'group_name');
     $this->brands = CHtml::listData(Brand::model()->findAllBySql('SELECT * from brands'), 'brand_id', 'brand_name');
@@ -92,9 +89,10 @@ class Product extends CActiveRecord
   public function attributeLabels()
   {
     return array('product_id' => '#', 'product_code' => 'Ürün Kodu', 'product_name' => 'Ürün Adı',
-      'group_id' => 'Grup', 'group_name' => "Grup Adı", 'brand_id' => 'Marka', 'tax_rate' => 'KDV(%)',
-      'cost_price' => 'Alış Fiyatı(KDV Hariç)', 'sale_price' => 'Satış Fiyatı(KDV Dahil)', 'currency' => 'Para Birimi',
-      'quantity' => 'Adet', 'image' => 'Resim', 'type' => 'Tür');
+      'group_id' => 'Grup', 'group_name' => "Grup Adı", 'brand_id' => 'Marka',
+      'tax_rate' => 'KDV(%)', 'cost_price' => 'Alış Fiyatı(KDV Hariç)',
+      'sale_price' => 'Satış Fiyatı(KDV Dahil)', 'currency' => 'Para Birimi', 'quantity' => 'Adet',
+      'image' => 'Resim', 'type' => 'Tür');
   }
 
   /**
@@ -103,6 +101,27 @@ class Product extends CActiveRecord
    * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
    */
   public function search()
+  {
+    // Warning: Please modify the following code to remove attributes that
+    // should not be searched.
+    $criteria = new CDbCriteria();
+    $criteria->compare('product_id', $this->product_id, true);
+    $criteria->compare('product_code', $this->product_code, true);
+    $criteria->compare('product_name', $this->product_name, true);
+    $criteria->compare('brand_id', $this->brand_id);
+    $criteria->compare('tax_rate', $this->tax_rate);
+    $criteria->compare('cost_price', $this->cost_price, true);
+    $criteria->compare('sale_price', $this->sale_price, true);
+    $criteria->compare('currency', $this->currency, true);
+    $criteria->compare('quantity', $this->quantity);
+    $criteria->compare('image', $this->image, true);
+    $criteria->compare('type', $this->type, true);
+    return new CActiveDataProvider($this, array('criteria' => $criteria,
+      'sort' => array('attributes' => array('product_id', 'product_name')),  // Attributes has to be row name of my sql query result
+      'pagination' => array('pageSize' => 5)));
+  }
+
+  public function getProducts()
   {
     // Warning: Please modify the following code to remove attributes that
     // should not be searched.
@@ -123,13 +142,12 @@ class Product extends CActiveRecord
     $criteria->compare('image', $this->image, true);
     $criteria->compare('type', $this->type, true);
     return new CActiveDataProvider($this, array('criteria' => $criteria,
-      'sort' => array('attributes' => array('product_id', 'product_name'))      // Attributes has to be row name of my sql query result
-      , 'pagination' => array('pageSize' => 2)));
+      'sort' => array('attributes' => array('product_id', 'product_name')),  // Attributes has to be row name of my sql query result
+      'pagination' => array('pageSize' => 5)));
   }
 
   public static function get_groups()
   {
     $result = $this->db->findAllBySql("SELECT * FROM product_groups");
-
   }
 }

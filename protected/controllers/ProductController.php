@@ -15,8 +15,8 @@ class ProductController extends Controller
   public function filters()
   {
     return array('accessControl',     // perform access control for CRUD operations
-    'postOnly + delete')    // we only allow deletion via POST request
-    ;
+    'postOnly + delete');    // we only allow deletion via POST request
+
   }
 
   /**
@@ -52,8 +52,7 @@ class ProductController extends Controller
   public function actionCreate()
   {
     $model = new Product();
-
-   // Uncomment the following line if AJAX validation is needed
+    // Uncomment the following line if AJAX validation is needed
     // $this->performAjaxValidation($model);
     if (isset($_POST['Product'])){
       $model->attributes = $_POST['Product'];
@@ -113,10 +112,6 @@ class ProductController extends Controller
     $model = new Product('search');
     $model->unsetAttributes(); // clear any default values
     if (isset($_GET['Product'])) $model->attributes = $_GET['Product'];
-
-
-
-
     $this->render('admin', array('model' => $model));
   }
 
