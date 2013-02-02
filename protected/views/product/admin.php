@@ -85,7 +85,7 @@ $this->widget('DataGrid', array('id' => 'product-grid', 'itemsCssClass' => 'data
   'cssFile' => Yii::app()->request->baseUrl . '/interface/css/gridview/styles.css',
   'template' => '{items}{pager}',
   'columns' => array(array('name' => 'product_name'),array('name' => "product_code",'filter'=>false),
-    array('name'=>'group_id','filter'=>false), array('name'=>'brand_id','filter'=>false),
+    array('name'=>'group.group_name','value'=>'$data->group->group_name','type'=>"text", 'filter'=>false), array('name'=>'brand.brand_name','value'=>'$data->brand->brand_name','type'=>"text", 'filter'=>false),
 		/*
 		'tax_rate',
 		'cost_price',

@@ -11392,3 +11392,267 @@ Stack trace:
 REQUEST_URI=/tys/index.php/offer/create
 HTTP_REFERER=http://localhost:8080/tys/index.php/offer/admin/1
 ---
+2013/02/02 14:35:35 [warning] [application] Failed to set unsafe attribute "description" of "Product".
+in C:\xampp\htdocs\tys\protected\controllers\ProductController.php (113)
+in C:\xampp\htdocs\tys\index.php (18)
+2013/02/02 16:26:39 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\framework\base\CComponent.php(607) : eval()'d code:1)
+Stack trace:
+#0 C:\xampp\htdocs\framework\zii\widgets\grid\CGridColumn.php(145): CDataColumn->renderDataCellContent()
+#1 C:\xampp\htdocs\framework\zii\widgets\grid\CGridView.php(546): CDataColumn->renderDataCell()
+#2 C:\xampp\htdocs\tys\protected\components\DataGrid.php(103): DataGrid->renderTableRow()
+#3 C:\xampp\htdocs\framework\zii\widgets\grid\CGridView.php(427): DataGrid->renderTableBody()
+#4 C:\xampp\htdocs\framework\zii\widgets\CBaseListView.php(161): DataGrid->renderItems()
+#5 unknown(0): DataGrid->renderSection()
+#6 C:\xampp\htdocs\framework\zii\widgets\CBaseListView.php(144): preg_replace_callback()
+#7 C:\xampp\htdocs\framework\zii\widgets\CBaseListView.php(129): DataGrid->renderContent()
+#8 C:\xampp\htdocs\framework\web\CBaseController.php(174): DataGrid->run()
+#9 C:\xampp\htdocs\tys\protected\views\product\admin.php(241): ProductController->widget()
+#10 C:\xampp\htdocs\framework\web\CBaseController.php(127): require()
+#11 C:\xampp\htdocs\framework\web\CBaseController.php(96): ProductController->renderInternal()
+#12 C:\xampp\htdocs\framework\web\CController.php(870): ProductController->renderFile()
+#13 C:\xampp\htdocs\framework\web\CController.php(783): ProductController->renderPartial()
+#14 C:\xampp\htdocs\tys\protected\controllers\ProductController.php(229): ProductController->render()
+#15 C:\xampp\htdocs\tys\protected\controllers\ProductController.php(201): ProductController->actionAdmin()
+#16 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(50): ProductController->actionIndex()
+#17 C:\xampp\htdocs\framework\web\CController.php(309): CInlineAction->runWithParams()
+#18 C:\xampp\htdocs\framework\web\filters\CFilterChain.php(134): ProductController->runAction()
+#19 C:\xampp\htdocs\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#20 C:\xampp\htdocs\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#21 C:\xampp\htdocs\framework\web\filters\CInlineFilter.php(59): ProductController->filterAccessControl()
+#22 C:\xampp\htdocs\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#23 C:\xampp\htdocs\framework\web\CController.php(292): CFilterChain->run()
+#24 C:\xampp\htdocs\framework\web\CController.php(266): ProductController->runActionWithFilters()
+#25 C:\xampp\htdocs\framework\web\CWebApplication.php(283): ProductController->run()
+#26 C:\xampp\htdocs\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#27 C:\xampp\htdocs\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#28 C:\xampp\htdocs\tys\index.php(18): CWebApplication->run()
+REQUEST_URI=/tys/index.php/product/index
+in C:\xampp\htdocs\tys\protected\components\DataGrid.php (103)
+in C:\xampp\htdocs\tys\protected\views\product\admin.php (241)
+in C:\xampp\htdocs\tys\protected\controllers\ProductController.php (229)
+2013/02/02 16:27:15 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\framework\base\CComponent.php(607) : eval()'d code:1)
+Stack trace:
+#0 C:\xampp\htdocs\framework\zii\widgets\grid\CGridColumn.php(145): CDataColumn->renderDataCellContent()
+#1 C:\xampp\htdocs\framework\zii\widgets\grid\CGridView.php(546): CDataColumn->renderDataCell()
+#2 C:\xampp\htdocs\tys\protected\components\DataGrid.php(103): DataGrid->renderTableRow()
+#3 C:\xampp\htdocs\framework\zii\widgets\grid\CGridView.php(427): DataGrid->renderTableBody()
+#4 C:\xampp\htdocs\framework\zii\widgets\CBaseListView.php(161): DataGrid->renderItems()
+#5 unknown(0): DataGrid->renderSection()
+#6 C:\xampp\htdocs\framework\zii\widgets\CBaseListView.php(144): preg_replace_callback()
+#7 C:\xampp\htdocs\framework\zii\widgets\CBaseListView.php(129): DataGrid->renderContent()
+#8 C:\xampp\htdocs\framework\web\CBaseController.php(174): DataGrid->run()
+#9 C:\xampp\htdocs\tys\protected\views\product\admin.php(241): ProductController->widget()
+#10 C:\xampp\htdocs\framework\web\CBaseController.php(127): require()
+#11 C:\xampp\htdocs\framework\web\CBaseController.php(96): ProductController->renderInternal()
+#12 C:\xampp\htdocs\framework\web\CController.php(870): ProductController->renderFile()
+#13 C:\xampp\htdocs\framework\web\CController.php(783): ProductController->renderPartial()
+#14 C:\xampp\htdocs\tys\protected\controllers\ProductController.php(229): ProductController->render()
+#15 C:\xampp\htdocs\tys\protected\controllers\ProductController.php(201): ProductController->actionAdmin()
+#16 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(50): ProductController->actionIndex()
+#17 C:\xampp\htdocs\framework\web\CController.php(309): CInlineAction->runWithParams()
+#18 C:\xampp\htdocs\framework\web\filters\CFilterChain.php(134): ProductController->runAction()
+#19 C:\xampp\htdocs\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#20 C:\xampp\htdocs\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#21 C:\xampp\htdocs\framework\web\filters\CInlineFilter.php(59): ProductController->filterAccessControl()
+#22 C:\xampp\htdocs\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#23 C:\xampp\htdocs\framework\web\CController.php(292): CFilterChain->run()
+#24 C:\xampp\htdocs\framework\web\CController.php(266): ProductController->runActionWithFilters()
+#25 C:\xampp\htdocs\framework\web\CWebApplication.php(283): ProductController->run()
+#26 C:\xampp\htdocs\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#27 C:\xampp\htdocs\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#28 C:\xampp\htdocs\tys\index.php(18): CWebApplication->run()
+REQUEST_URI=/tys/index.php/product/index
+in C:\xampp\htdocs\tys\protected\components\DataGrid.php (103)
+in C:\xampp\htdocs\tys\protected\views\product\admin.php (241)
+in C:\xampp\htdocs\tys\protected\controllers\ProductController.php (229)
+2013/02/02 16:31:21 [error] [exception.CDbException] exception 'CDbException' with message 'Relation "brand,group" is not defined in active record class "Product".' in C:\xampp\htdocs\framework\db\ar\CActiveFinder.php:216
+Stack trace:
+#0 C:\xampp\htdocs\framework\db\ar\CActiveFinder.php(49): CActiveFinder->buildJoinTree(Object(CJoinElement), 'brand,group')
+#1 C:\xampp\htdocs\framework\db\ar\CActiveRecord.php(1543): CActiveFinder->__construct(Object(Product), 'brand,group')
+#2 C:\xampp\htdocs\framework\web\CActiveDataProvider.php(179): CActiveRecord->count(Object(CDbCriteria))
+#3 C:\xampp\htdocs\framework\web\CDataProvider.php(193): CActiveDataProvider->calculateTotalItemCount()
+#4 C:\xampp\htdocs\framework\web\CActiveDataProvider.php(129): CDataProvider->getTotalItemCount()
+#5 C:\xampp\htdocs\framework\web\CDataProvider.php(137): CActiveDataProvider->fetchData()
+#6 C:\xampp\htdocs\framework\zii\widgets\CBaseListView.php(108): CDataProvider->getData()
+#7 C:\xampp\htdocs\framework\zii\widgets\grid\CGridView.php(289): CBaseListView->init()
+#8 C:\xampp\htdocs\tys\protected\components\DataGrid.php(29): CGridView->init()
+#9 C:\xampp\htdocs\framework\web\CBaseController.php(148): DataGrid->init()
+#10 C:\xampp\htdocs\framework\web\CBaseController.php(173): CBaseController->createWidget('DataGrid', Array)
+#11 C:\xampp\htdocs\tys\protected\views\product\admin.php(241): CBaseController->widget('DataGrid', Array)
+#12 C:\xampp\htdocs\framework\web\CBaseController.php(127): require('C:\xampp\htdocs...')
+#13 C:\xampp\htdocs\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#14 C:\xampp\htdocs\framework\web\CController.php(870): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#15 C:\xampp\htdocs\framework\web\CController.php(783): CController->renderPartial('admin', Array, true)
+#16 C:\xampp\htdocs\tys\protected\controllers\ProductController.php(229): CController->render('admin', Array)
+#17 C:\xampp\htdocs\tys\protected\controllers\ProductController.php(201): ProductController->actionAdmin()
+#18 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(50): ProductController->actionIndex()
+#19 C:\xampp\htdocs\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#20 C:\xampp\htdocs\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#21 C:\xampp\htdocs\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#22 C:\xampp\htdocs\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#23 C:\xampp\htdocs\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#24 C:\xampp\htdocs\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#25 C:\xampp\htdocs\framework\web\CController.php(292): CFilterChain->run()
+#26 C:\xampp\htdocs\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#27 C:\xampp\htdocs\framework\web\CWebApplication.php(283): CController->run('index')
+#28 C:\xampp\htdocs\framework\web\CWebApplication.php(142): CWebApplication->runController('product/index')
+#29 C:\xampp\htdocs\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#30 C:\xampp\htdocs\tys\index.php(18): CApplication->run()
+#31 {main}
+REQUEST_URI=/tys/index.php/product/index
+HTTP_REFERER=http://localhost:8080/tys/index.php/product/1
+---
+2013/02/02 17:22:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "ico".' in C:\xampp\htdocs\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(271): CController->missingAction('ico')
+#1 C:\xampp\htdocs\framework\web\CWebApplication.php(283): CController->run('ico')
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(142): CWebApplication->runController('site/ico/favico...')
+#3 C:\xampp\htdocs\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\tys\index.php(18): CApplication->run()
+#5 {main}
+REQUEST_URI=/tys/index.php/site/ico/favicon.ico
+---
+2013/02/02 17:22:54 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.memberid" is not defined.' in C:\xampp\htdocs\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\auth\CWebUser.php(141): CComponent->__get('memberid')
+#1 C:\xampp\htdocs\tys\protected\views\offer\_form.php(45): CWebUser->__get('memberid')
+#2 C:\xampp\htdocs\framework\web\CBaseController.php(127): require('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\framework\web\CController.php(870): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tys\protected\views\offer\update.php(43): CController->renderPartial('_form', Array)
+#6 C:\xampp\htdocs\framework\web\CBaseController.php(127): require('C:\xampp\htdocs...')
+#7 C:\xampp\htdocs\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#8 C:\xampp\htdocs\framework\web\CController.php(870): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#9 C:\xampp\htdocs\framework\web\CController.php(783): CController->renderPartial('update', Array, true)
+#10 C:\xampp\htdocs\tys\protected\controllers\OfferController.php(79): CController->render('update', Array)
+#11 [internal function]: OfferController->actionUpdate('1')
+#12 C:\xampp\htdocs\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(OfferController), Array)
+#13 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(OfferController), Object(ReflectionMethod), Array)
+#14 C:\xampp\htdocs\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#15 C:\xampp\htdocs\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#16 C:\xampp\htdocs\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#17 C:\xampp\htdocs\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#18 C:\xampp\htdocs\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#19 C:\xampp\htdocs\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#20 C:\xampp\htdocs\framework\web\CController.php(292): CFilterChain->run()
+#21 C:\xampp\htdocs\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 C:\xampp\htdocs\framework\web\CWebApplication.php(283): CController->run('update')
+#23 C:\xampp\htdocs\framework\web\CWebApplication.php(142): CWebApplication->runController('offer/update')
+#24 C:\xampp\htdocs\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#25 C:\xampp\htdocs\tys\index.php(18): CApplication->run()
+#26 {main}
+REQUEST_URI=/tys/index.php/offer/update/1
+HTTP_REFERER=http://localhost:8080/tys/index.php/offer/index
+---
+2013/02/02 17:23:02 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.memberid" is not defined.' in C:\xampp\htdocs\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\auth\CWebUser.php(141): CComponent->__get('memberid')
+#1 C:\xampp\htdocs\tys\protected\views\offer\_form.php(45): CWebUser->__get('memberid')
+#2 C:\xampp\htdocs\framework\web\CBaseController.php(127): require('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\framework\web\CController.php(870): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tys\protected\views\offer\update.php(43): CController->renderPartial('_form', Array)
+#6 C:\xampp\htdocs\framework\web\CBaseController.php(127): require('C:\xampp\htdocs...')
+#7 C:\xampp\htdocs\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#8 C:\xampp\htdocs\framework\web\CController.php(870): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#9 C:\xampp\htdocs\framework\web\CController.php(783): CController->renderPartial('update', Array, true)
+#10 C:\xampp\htdocs\tys\protected\controllers\OfferController.php(79): CController->render('update', Array)
+#11 [internal function]: OfferController->actionUpdate('1')
+#12 C:\xampp\htdocs\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(OfferController), Array)
+#13 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(OfferController), Object(ReflectionMethod), Array)
+#14 C:\xampp\htdocs\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#15 C:\xampp\htdocs\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#16 C:\xampp\htdocs\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#17 C:\xampp\htdocs\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#18 C:\xampp\htdocs\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#19 C:\xampp\htdocs\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#20 C:\xampp\htdocs\framework\web\CController.php(292): CFilterChain->run()
+#21 C:\xampp\htdocs\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 C:\xampp\htdocs\framework\web\CWebApplication.php(283): CController->run('update')
+#23 C:\xampp\htdocs\framework\web\CWebApplication.php(142): CWebApplication->runController('offer/update')
+#24 C:\xampp\htdocs\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#25 C:\xampp\htdocs\tys\index.php(18): CApplication->run()
+#26 {main}
+REQUEST_URI=/tys/index.php/offer/update/1
+HTTP_REFERER=http://localhost:8080/tys/index.php/offer/index
+---
+2013/02/02 17:23:13 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.memberid" is not defined.' in C:\xampp\htdocs\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\auth\CWebUser.php(141): CComponent->__get('memberid')
+#1 C:\xampp\htdocs\tys\protected\views\offer\_form.php(45): CWebUser->__get('memberid')
+#2 C:\xampp\htdocs\framework\web\CBaseController.php(127): require('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\framework\web\CController.php(870): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tys\protected\views\offer\create.php(37): CController->renderPartial('_form', Array)
+#6 C:\xampp\htdocs\framework\web\CBaseController.php(127): require('C:\xampp\htdocs...')
+#7 C:\xampp\htdocs\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#8 C:\xampp\htdocs\framework\web\CController.php(870): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#9 C:\xampp\htdocs\framework\web\CController.php(783): CController->renderPartial('create', Array, true)
+#10 C:\xampp\htdocs\tys\protected\controllers\OfferController.php(61): CController->render('create', Array)
+#11 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(50): OfferController->actionCreate()
+#12 C:\xampp\htdocs\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#13 C:\xampp\htdocs\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#14 C:\xampp\htdocs\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\xampp\htdocs\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#16 C:\xampp\htdocs\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#17 C:\xampp\htdocs\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#18 C:\xampp\htdocs\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\xampp\htdocs\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\xampp\htdocs\framework\web\CWebApplication.php(283): CController->run('create')
+#21 C:\xampp\htdocs\framework\web\CWebApplication.php(142): CWebApplication->runController('offer/create')
+#22 C:\xampp\htdocs\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\tys\index.php(18): CApplication->run()
+#24 {main}
+REQUEST_URI=/tys/index.php/offer/create
+HTTP_REFERER=http://localhost:8080/tys/index.php/offer/index
+---
+2013/02/02 17:23:55 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.memberid" is not defined.' in C:\xampp\htdocs\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\auth\CWebUser.php(141): CComponent->__get('memberid')
+#1 C:\xampp\htdocs\tys\protected\views\offer\_form.php(45): CWebUser->__get('memberid')
+#2 C:\xampp\htdocs\framework\web\CBaseController.php(127): require('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\framework\web\CController.php(870): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\tys\protected\views\offer\create.php(37): CController->renderPartial('_form', Array)
+#6 C:\xampp\htdocs\framework\web\CBaseController.php(127): require('C:\xampp\htdocs...')
+#7 C:\xampp\htdocs\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#8 C:\xampp\htdocs\framework\web\CController.php(870): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#9 C:\xampp\htdocs\framework\web\CController.php(783): CController->renderPartial('create', Array, true)
+#10 C:\xampp\htdocs\tys\protected\controllers\OfferController.php(61): CController->render('create', Array)
+#11 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(50): OfferController->actionCreate()
+#12 C:\xampp\htdocs\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#13 C:\xampp\htdocs\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#14 C:\xampp\htdocs\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\xampp\htdocs\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#16 C:\xampp\htdocs\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#17 C:\xampp\htdocs\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#18 C:\xampp\htdocs\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\xampp\htdocs\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\xampp\htdocs\framework\web\CWebApplication.php(283): CController->run('create')
+#21 C:\xampp\htdocs\framework\web\CWebApplication.php(142): CWebApplication->runController('offer/create')
+#22 C:\xampp\htdocs\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\tys\index.php(18): CApplication->run()
+#24 {main}
+REQUEST_URI=/tys/index.php/offer/create
+HTTP_REFERER=http://localhost:8080/tys/index.php/offer/index
+---
+2013/02/02 17:24:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "ico".' in C:\xampp\htdocs\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(271): CController->missingAction('ico')
+#1 C:\xampp\htdocs\framework\web\CWebApplication.php(283): CController->run('ico')
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(142): CWebApplication->runController('site/ico/favico...')
+#3 C:\xampp\htdocs\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\tys\index.php(18): CApplication->run()
+#5 {main}
+REQUEST_URI=/tys/index.php/site/ico/favicon.ico
+---
+2013/02/02 17:24:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "ico".' in C:\xampp\htdocs\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(271): CController->missingAction('ico')
+#1 C:\xampp\htdocs\framework\web\CWebApplication.php(283): CController->run('ico')
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(142): CWebApplication->runController('site/ico/favico...')
+#3 C:\xampp\htdocs\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\tys\index.php(18): CApplication->run()
+#5 {main}
+REQUEST_URI=/tys/index.php/site/ico/favicon.ico
+---
