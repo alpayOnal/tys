@@ -31,7 +31,7 @@
 		            'update'=>'#Offer_customer_staff', //selector to update
 		            //'data'=>'js:javascript statement'
 		        //leave out the data key to pass all form values through
-		        )));
+		        ),		'options' => array($model->customer_id=>array('selected'=>true))        		));
 		$customerList = $form->dropDownList($model, 'customer_id', $model->customers, array(
 		    'empty' => Yii::t('', 'Seçiniz')));
 		//echo $customerList;
@@ -41,9 +41,9 @@
 	</div>
 
 	<div class="control-group">
-		<?php echo $form->labelEx($model,'customer_staff',array('class'=>"control-label")); ?>
+		<?php 		echo $form->labelEx($model,'customer_staff',array('class'=>"control-label")); ?>
 		<div class="controls">
-		<?php echo $form->dropDownList($model,'customer_staff',array()); ?>
+		<?php 		echo '<input type="hidden" name="staffId" value="'.$model->customer_staff.'"  />';		echo $form->dropDownList($model,'customer_staff',array()); ?>
 		<?php echo $form->error($model,'customer_staff'); ?>
 		</div>
 	</div>
@@ -83,4 +83,4 @@ if (!$model->isNewRecord ){
 <?php $this->endWidget(); ?>
 
 </div>
-</div>
+</div><script>$(document).ready(function() {	jQuery.ajax({		'type':'POST',		'url':'/index.php/customer/stafflist',		'cache':false,		'data':jQuery('#offer-form').serialize(),		'success':function(html){			jQuery("#Offer_customer_staff").html(html);			var staffId=$('input[name="staffId"]').val();			$('#Offer_customer_staff').val("1");		}	});	 });</script>
