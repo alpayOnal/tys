@@ -60,7 +60,7 @@
 	<div class="control-group">
 		<?php echo $form->labelEx($model,'offer_date',array('class'=>"control-label")); ?>
 		<div class="controls">
-		<?php //echo $form->dateField($model,'offer_date',array('class'=>"input-xlarge",)); ?>    <?php $this->widget('zii.widgets.jui.CJuiDatePicker', array(        'model' => $model,        'attribute' => 'offer_date',				'options'=>array('dateFormat'=>"yy-mm-dd",'altFormat'=>"dd-mm-yy",'buttonText'=>'...'),        'htmlOptions' => array(            'value' => $model->offer_date, // set the default date here        ),    )) ?>
+		<?php //echo $form->dateField($model,'offer_date',array('class'=>"input-xlarge",)); ?>		<?php $this->widget('zii.widgets.jui.CJuiDatePicker', array(			  'model' => $model,			  'attribute' => 'offer_date',			  'value' => $model->offer_date,			  'language'=>Yii::app()->language=='tr' ? 'tr' : null,								'htmlOptions'=>array(					'style'=>'width:100px;text-align:center'				),			) ); ?>
 		<?php echo $form->error($model,'offer_date'); ?>
 		</div>
 	</div>
@@ -83,4 +83,4 @@ if (!$model->isNewRecord ){
 <?php $this->endWidget(); ?>
 
 </div>
-</div>
+</div>

@@ -123,5 +123,5 @@ class Offer extends CActiveRecord
 		        'pageSize' => 10,
 		    ),
 		));
-	}
-}
+	}		protected function beforeSave ()    {		$offer_date=strtotime($this->offer_date);		$offer_date=date("Y-m-d",$offer_date);		$this->offer_date=$offer_date;        return parent::beforeSave ();    }  	protected function afterFind ()    {		$offer_date=strtotime($this->offer_date);		$offer_date=date("d/m/Y",$offer_date);		$this->offer_date=$offer_date;        return parent::afterFind ();    }
+}
