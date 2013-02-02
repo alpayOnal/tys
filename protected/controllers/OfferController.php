@@ -56,7 +56,7 @@ class OfferController extends Controller
     // $this->performAjaxValidation($model);
     if (isset($_POST['Offer'])){
       $model->attributes = $_POST['Offer'];
-      if ($model->save()) $this->redirect(array('view', 'id' => $model->offer_id));
+      if ($model->save()) $this->redirect(array('details', 'id' => $model->offer_id));
     }
     $this->render('create', array('model' => $model));
   }
@@ -74,7 +74,7 @@ class OfferController extends Controller
     // $this->performAjaxValidation($model);
     if (isset($_POST['Offer'])){
       $model->attributes = $_POST['Offer'];
-      if ($model->save()) $this->redirect(array('view', 'id' => $model->offer_id));
+      if ($model->save()) $this->redirect(array('admin', 'id' => $model->offer_id));
     }
     $this->render('update', array('model' => $model));
   }

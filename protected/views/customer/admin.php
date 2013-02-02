@@ -39,9 +39,9 @@ $('.search-form form').submit(function(){
 <?php
 $this->widget('DataGrid', array('id' => 'customer-grid',
   'itemsCssClass' => 'data-tbl-boxy table',  'summaryText' => "{count} adet kayıt bulundu",  'template' => '{items}{pager}',
-  'enablePagination' => true,  'dataProvider' => $model->search(),
-  'filter' => $model,
-  'cssFile' => Yii::app()->request->baseUrl . '/interface/css/gridview/styles.css',
+  'enablePagination' => true,  'dataProvider' => $model->search(),
+  'filter' => $model,
+  'cssFile' => Yii::app()->request->baseUrl . '/interface/css/gridview/styles.css',
   'columns' => array(array('name' => 'company_name'),
     array('name' => 'company_title', 'filter' => false),
     array('name' => 'current_code', 'filter' => false),
@@ -70,10 +70,4 @@ array('class' => 'GridButton', 'template' => '{edit}{stuff}{remove}',
 ?>
 </div>
   </div>
-</div>
-
-<script type="text/javascript" >
-$(document).ready(function(){
-  $('#customer-grid a[title=Delete]').hide();
-});
-</script>
+</div>

@@ -20,7 +20,6 @@
 
 	<div class="control-group">
 		<div class="controls">
-		<?php //echo $form->hiddenField($model,'member_id',array('value'=>Yii::app()->user->getId())); ?>
 		<?php echo $form->hiddenField($model,'member_id',array('value'=>Yii::app()->user->memberid)); ?>
 		</div>
 	</div>	<div class="control-group">		<?php echo $form->labelEx($model,'customer_id',array('class'=>"control-label")); ?>		<div class="controls">		<?php		echo CHtml::dropDownList('customer_id','', $model->customers,		    array(
@@ -61,7 +60,7 @@
 	<div class="control-group">
 		<?php echo $form->labelEx($model,'offer_date',array('class'=>"control-label")); ?>
 		<div class="controls">
-		<?php echo $form->dateField($model,'offer_date',array('class'=>"input-xlarge",)); ?>
+		<?php //echo $form->dateField($model,'offer_date',array('class'=>"input-xlarge",)); ?>    <?php $this->widget('zii.widgets.jui.CJuiDatePicker', array(        'model' => $model,        'attribute' => 'offer_date',				'options'=>array('dateFormat'=>"yy-mm-dd",'altFormat'=>"dd-mm-yy",'buttonText'=>'...'),        'htmlOptions' => array(            'value' => $model->offer_date, // set the default date here        ),    )) ?>
 		<?php echo $form->error($model,'offer_date'); ?>
 		</div>
 	</div>
