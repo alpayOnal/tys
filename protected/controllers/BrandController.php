@@ -32,12 +32,8 @@ class BrandController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('admin','delete', 'create','update'),
 				'users'=>array('@'),
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -71,7 +67,7 @@ class BrandController extends Controller
 		{
 			$model->attributes=$_POST['Brand'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->brand_id));
+				$this->redirect($this->createUrl("brand/admin"));
 		}
 
 		$this->render('create',array(
@@ -122,6 +118,10 @@ class BrandController extends Controller
 	 */
 	public function actionIndex()
 	{
+
+	  $this->actionAdmin();
+	  return;
+
 		$dataProvider=new CActiveDataProvider('Brand');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,

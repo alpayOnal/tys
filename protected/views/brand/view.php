@@ -3,7 +3,7 @@
 /* @var $model Brand */
 
 $this->breadcrumbs=array(
-	'Brands'=>array('index'),
+	'Markalar'=>array('index'),
 	$model->brand_id,
 );
 

@@ -749,3 +749,40 @@ THEME SWITCHER
 				$('#themes').attr('href','css'+'/'+stylesheet+'.css');
 				});
 			});
+		
+		
+ /*Yii Grid kayıt Silme */		
+		
+		$(function(){
+		  $('.btn-danger').live("click",function(){
+
+          if(!confirm('Kaydı silmek istiyormusunuz?')) return false;
+              var th  = this;
+              var href = $(this).attr('href');
+              var gridid;
+
+
+            var parentEls = $(this).parents()
+                .map(function () {
+                  if($(this).attr('class') == 'grid-view') {
+                  gridid = $(this).attr('id'); 
+                  return;
+                  }
+                });
+
+            var afterDelete=function(){};
+            $.fn.yiiGridView.update(gridid, {
+                type:'POST',
+                url:href,
+                success:function(data) {
+                    $.fn.yiiGridView.update(gridid);
+                    afterDelete(th,true,data);
+                    $(th).parent().parent().hide('slow');
+                },
+                error:function(XHR) {
+                    return afterDelete(th,false,XHR);
+                }
+            });
+            return false;
+		  });
+		});

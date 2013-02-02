@@ -3,9 +3,9 @@
 /* @var $model ProductGroup */
 
 $this->breadcrumbs=array(
-	'Product Groups'=>array('index'),
-	$model->group_id=>array('view','id'=>$model->group_id),
-	'Update',
+	'Ürün Grupları'=>array('admin'),
+	$model->group_name=>array('view','id'=>$model->group_id),
+	'Güncelle',
 );
 
 $this->menu=array(

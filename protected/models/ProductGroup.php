@@ -38,7 +38,7 @@ class ProductGroup extends CActiveRecord
 			array('group_name', 'length', 'max'=>200),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('group_id, group_name', 'safe', 'on'=>'search'),
+			array('group_name', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,8 +59,8 @@ class ProductGroup extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'group_id' => 'Group',
-			'group_name' => 'Group Name',
+			'group_id' => '#',
+			'group_name' => 'Grup Adı',
 		);
 	}
 
@@ -74,8 +74,6 @@ class ProductGroup extends CActiveRecord
 		// should not be searched.
 
 		$criteria=new CDbCriteria;
-
-		$criteria->compare('group_id',$this->group_id,true);
 		$criteria->compare('group_name',$this->group_name,true);
 
 		return new CActiveDataProvider($this, array(

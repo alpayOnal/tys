@@ -39,7 +39,7 @@ class Brand extends CActiveRecord
 			array('brand_name', 'length', 'max'=>64),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('brand_id, brand_name', 'safe', 'on'=>'search'),
+			array('brand_name', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -60,8 +60,8 @@ class Brand extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'brand_id' => 'Brand',
-			'brand_name' => 'Brand Name',
+			'brand_id' => '#',
+			'brand_name' => 'Marka Adı',
 		);
 	}
 

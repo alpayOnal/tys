@@ -3,8 +3,8 @@
 /* @var $model Brand */
 
 $this->breadcrumbs=array(
-	'Brands'=>array('index'),
-	'Manage',
+	'Markalar'=>array('admin'),
+	'Yönet',
 );
 
 $this->menu=array(
@@ -26,29 +26,53 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Brands</h1>
+<div class="page-header">
+  <h1>Markaları Yönet</h1>
+</div>
 
-<p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-</p>
 
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
-<div class="search-form" style="display:none">
-<?php $this->renderPartial('_search',array(
+
+
+<?php $this->renderPartial('_form',array(
 	'model'=>$model,
 )); ?>
-</div><!-- search-form -->
+
+<div class="widget-block">
+  <div class="widget-head">
+    <h5>MARKALAR</h5>
+    <div class="widget-control pull-right">
+      <a href="#" data-toggle="dropdown" class="btn dropdown-toggle"><i class="icon-cog"></i><b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><a href="#"><i class="icon-plus"></i> Yeni Marka</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="widget-content">
+    <div class="widget-box">
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'brand-grid',
 	'dataProvider'=>$model->search(),
-	'filter'=>$model,
+  'itemsCssClass' => 'data-tbl-boxy table', 'summaryText' => "{count} adet kayıt bulundu",
+  'enablePagination' => true, 'template' => '{items}{pager}',
+  'cssFile' => Yii::app()->request->baseUrl . '/interface/css/gridview/styles.css',
+	/*'filter'=>$model,*/
 	'columns'=>array(
-		'brand_id',
 		'brand_name',
-		array(
-			'class'=>'CButtonColumn',
-		),
+array('class' => 'GridButton', 'template' => '{edit}{remove}',
+    'buttons' => array(
+        'edit' => array('label' => 'Düzenle', 'iclass' => '',
+            'url' => 'Yii::app()->createUrl("brand/update", array("id"=>$data->brand_id))',
+            'options' => array('class' => 'btn')),
+        'remove' => array('label' => '', 'iclass' => 'icon-trash icon-white',
+            'url' => 'Yii::app()->createUrl("brand/delete", array("id"=>$data->brand_id))',
+            'options' => array('class' => 'btn btn-danger delete')),
+)),
+
 	),
 )); ?>
+
+</div>
+  </div>
+</div>
+

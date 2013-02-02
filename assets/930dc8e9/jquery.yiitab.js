@@ -14,14 +14,14 @@
 		yiitab: function() {
 
 			function activate(id) {
-				var pos = id.indexOf("#");
+				var pos = id.indexOf("##");
 				if (pos>=0) {
 					id = id.substring(pos);
 				}
 				var $tab=$(id);
 				var $container=$tab.parent();
-				$container.find('>ul a').removeClass('active');
-				$container.find('>ul a[href="'+id+'"]').addClass('active');
+				$container.find('>.nav-tabs li').removeClass('active');
+				$container.find('>.nav nav-tabs li[id="'+id+'"]').addClass('active');
 				$container.children('div').hide();
 				$tab.show();
 			}

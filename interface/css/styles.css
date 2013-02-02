@@ -682,10 +682,10 @@ a {
 	top:-2px;
 }
 .breadcrumb {
-	padding: 4px 14px;
+	padding: 10px 14px;
 	margin: 0 0 18px;
 	list-style: none;
-	font-size:11px;
+	font-size:16px;
 	background: #f1f1f1; /* Old browsers */
 	background: -moz-linear-gradient(top, #f1f1f1 0%, #dbdbdb 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f1f1f1), color-stop(100%, #dbdbdb)); /* Chrome,Safari4+ */

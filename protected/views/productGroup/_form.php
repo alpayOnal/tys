@@ -4,27 +4,33 @@
 /* @var $form CActiveForm */
 ?>
 
-<div class="form">
+<div class="widget-content">
+  <div class="widget-box">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'product-group-form',
-	'enableAjaxValidation'=>false,
+	'enableAjaxValidation'=>false, 'htmlOptions' => array('class' => "form-horizontal well"),
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+<fieldset>
+      <p class="note">
+        <span class="required">*</span> zorunlu alanlar.
+      </p>
 
-	<?php echo $form->errorSummary($model); ?>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'group_name'); ?>
-		<?php echo $form->textField($model,'group_name',array('size'=>60,'maxlength'=>200)); ?>
+	<div class="control-group">
+		<?php echo $form->labelEx($model,'group_name',array('class'=>"control-label")); ?>
+		<div class="controls">
+		<?php echo $form->textField($model,'group_name',array('class'=>"input-xlarge",'size'=>60,'maxlength'=>200)); ?>
 		<?php echo $form->error($model,'group_name'); ?>
+		</div>
 	</div>
 
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+ <div class="form-actions">
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Kaydet' : 'Güncelle',array('class'=>"btn btn-primary")); ?>
 	</div>
 
+</fieldset>
 <?php $this->endWidget(); ?>
 
-</div><!-- form -->
+</div>
+</div>

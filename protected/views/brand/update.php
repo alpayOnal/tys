@@ -3,9 +3,9 @@
 /* @var $model Brand */
 
 $this->breadcrumbs=array(
-	'Brands'=>array('index'),
-	$model->brand_id=>array('view','id'=>$model->brand_id),
-	'Update',
+	'Markalar'=>array('index'),
+	$model->brand_name=>array('view','id'=>$model->brand_id),
+	'Güncelle',
 );
 
 $this->menu=array(
@@ -16,6 +16,8 @@ $this->menu=array(
 );
 ?>
 
-<h1>Update Brand <?php echo $model->brand_id; ?></h1>
+<div class="page-header">
+  <h1>Marka Güncelle</h1>
+</div>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

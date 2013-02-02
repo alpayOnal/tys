@@ -3,8 +3,8 @@
 /* @var $model ProductGroup */
 
 $this->breadcrumbs=array(
-	'Product Groups'=>array('index'),
-	'Create',
+	'Ürün Grupları'=>array('admin'),
+	'Oluştur',
 );
 
 $this->menu=array(
@@ -13,6 +13,8 @@ $this->menu=array(
 );
 ?>
 
-<h1>Create ProductGroup</h1>
+<div class="page-header">
+  <h1>Ürün Grubu Oluştur</h1>
+</div>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

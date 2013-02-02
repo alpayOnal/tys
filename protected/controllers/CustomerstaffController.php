@@ -1,6 +1,6 @@
 <?php
 
-class ProductGroupController extends Controller
+class CustomerstaffController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -32,12 +32,8 @@ class ProductGroupController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('admin','delete','create','update'),
 				'users'=>array('@'),
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -60,22 +56,25 @@ class ProductGroupController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
+	public function actionCreate($id)
 	{
-		$model=new ProductGroup;
+		$model=new CustomerStaff;
 
+		$model->customerId = $id;
+		$customerInfo = Customer::get($id);
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['ProductGroup']))
+		if(isset($_POST['CustomerStaff']))
 		{
-			$model->attributes=$_POST['ProductGroup'];
+			$model->attributes=$_POST['CustomerStaff'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->group_id));
+				$this->redirect(array('admin','id'=>$model->attributes['customer_id']));
 		}
 
 		$this->render('create',array(
 			'model'=>$model,
+		  'customer'=>$customerInfo,
 		));
 	}
 
@@ -91,11 +90,11 @@ class ProductGroupController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['ProductGroup']))
+		if(isset($_POST['CustomerStaff']))
 		{
-			$model->attributes=$_POST['ProductGroup'];
+			$model->attributes=$_POST['CustomerStaff'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->group_id));
+				$this->redirect($this->createUrl("customerstaff/admin/".$model->attributes['customer_id']));
 		}
 
 		$this->render('update',array(
@@ -122,7 +121,7 @@ class ProductGroupController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('ProductGroup');
+		$dataProvider=new CActiveDataProvider('CustomerStaff');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -131,12 +130,19 @@ class ProductGroupController extends Controller
 	/**
 	 * Manages all models.
 	 */
-	public function actionAdmin()
+	public function actionAdmin($id)
 	{
-		$model=new ProductGroup('search');
+	  if ($id == 0) {
+	    Cms::setMessage("Müşteri No Bulunamadı");
+	    $this->redirect($this->createUrl("customer/admin"));
+	    return;
+	  }
+		$model=new CustomerStaff();
+		$model->customerId = $id;
+		$model->setScenario("search");
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['ProductGroup']))
-			$model->attributes=$_GET['ProductGroup'];
+		if(isset($_GET['CustomerStaff']))
+			$model->attributes=$_GET['CustomerStaff'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -150,7 +156,7 @@ class ProductGroupController extends Controller
 	 */
 	public function loadModel($id)
 	{
-		$model=ProductGroup::model()->findByPk($id);
+		$model=CustomerStaff::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -162,7 +168,7 @@ class ProductGroupController extends Controller
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='product-group-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='customer-staff-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

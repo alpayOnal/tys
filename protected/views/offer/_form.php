@@ -1,68 +1,87 @@
-<?php
-/* @var $this OfferController */
-/* @var $model Offer */
-/* @var $form CActiveForm */
-?>
-
-<fieldset class="fieldset">
-<legend class="legend">Teklif Formu</legend>
-
-<?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'offer-form',
-	'enableAjaxValidation'=>false,
-  'htmlOptions'=>array('class'=>"columns")
-)); ?>
-
-	<p class="note"> <span class="required">*</span> zorunlu alanlar.</p>
-
-	<?php //echo $form->errorSummary($model); ?>
-
-	<p class="button-height inline-label">
-		<?php echo $form->labelEx($model,'member_id',array('class'=>"label")); ?>
-		<?php echo $form->textField($model,'member_id',array('class'=>"input",'size'=>11,'maxlength'=>11)); ?>
-		<?php echo $form->error($model,'member_id'); ?>
-	</p>
-
-	<p class="button-height inline-label">
-		<?php echo $form->labelEx($model,'company_id',array('class'=>"label")); ?>
-		<?php echo $form->textField($model,'company_id',array('class'=>"input",'size'=>11,'maxlength'=>11)); ?>
-		<?php echo $form->error($model,'company_id'); ?>
-	</p>
-
-	<p class="button-height inline-label">
-		<?php echo $form->labelEx($model,'company_staff',array('class'=>"label")); ?>
-		<?php echo $form->textField($model,'company_staff',array('class'=>"input",'size'=>60,'maxlength'=>200)); ?>
-		<?php echo $form->error($model,'company_staff'); ?>
-	</p>
-
-	<p class="button-height inline-label">
-		<?php echo $form->labelEx($model,'note',array('class'=>"label")); ?>
-		<?php echo $form->textArea($model,'note',array('class'=>"input",'rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'note'); ?>
-	</p>
-
-	<p class="button-height inline-label">
-		<?php echo $form->labelEx($model,'manage_note',array('class'=>"label")); ?>
-		<?php echo $form->textArea($model,'manage_note',array('class'=>"input",'rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'manage_note'); ?>
-	</p>
-
-	<p class="button-height inline-label">
-		<?php echo $form->labelEx($model,'offer_date',array('class'=>"label")); ?>
-		<?php echo $form->textField($model,'offer_date',array('class'=>"input")); ?>
-		<?php echo $form->error($model,'offer_date'); ?>
-	</p>
-
-	<p class="button-height inline-label">
-		<?php echo $form->labelEx($model,'offer_status',array('class'=>"label")); ?>
-		<?php echo $form->textField($model,'offer_status',array('class'=>"input",'size'=>8,'maxlength'=>8)); ?>
-		<?php echo $form->error($model,'offer_status'); ?>
-	</p>
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Kaydet' : 'Güncelle',array('class'=>"button blue-gradient")); ?>
-	</div>
-
-<?php $this->endWidget(); ?>
-
-</fieldset> <!-- form -->
+<?php
+/* @var $this OfferController */
+/* @var $model Offer */
+/* @var $form CActiveForm */
+?>
+
+<div class="widget-content">
+  <div class="widget-box">
+
+<?php $form=$this->beginWidget('CActiveForm', array(
+	'id'=>'offer-form',
+	'enableAjaxValidation'=>false,
+  'htmlOptions'=>array('class'=>"form-horizontal well")
+)); ?>
+
+<fieldset>
+      <p class="note">
+        <span class="required">*</span> zorunlu alanlar.
+        </p>
+
+	<div class="control-group">
+		<div class="controls">
+		<?php //echo $form->hiddenField($model,'member_id',array('value'=>Yii::app()->user->getId())); ?>
+		<?php echo $form->hiddenField($model,'member_id',array('value'=>Yii::app()->user->memberid)); ?>
+		</div>
+	</div>	<div class="control-group">		<?php echo $form->labelEx($model,'customer_id',array('class'=>"control-label")); ?>		<div class="controls">		<?php		echo CHtml::dropDownList('customer_id','', $model->customers,		    array(
+        'empty' => Yii::t('', 'Seçiniz'),
+		        'ajax' => array(
+		            'type'=>'POST', //request type
+		            'url'=>CController::createUrl('customer/stafflist'), //url to call.
+		            //Style: CController::createUrl('currentController/methodToCall')
+		            'update'=>'#Offer_customer_staff', //selector to update
+		            //'data'=>'js:javascript statement'
+		        //leave out the data key to pass all form values through
+		        )));
+		$customerList = $form->dropDownList($model, 'customer_id', $model->customers, array(
+		    'empty' => Yii::t('', 'Seçiniz')));
+		//echo $customerList;
+		?>
+		<?php echo $form->error($model,'customer_id'); ?>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<?php echo $form->labelEx($model,'customer_staff',array('class'=>"control-label")); ?>
+		<div class="controls">
+		<?php echo $form->dropDownList($model,'customer_staff',array()); ?>
+		<?php echo $form->error($model,'customer_staff'); ?>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<?php echo $form->labelEx($model,'note',array('class'=>"control-label")); ?>
+		<div class="controls">
+		<?php echo $form->textArea($model,'note',array('class'=>"input-xlarge",'rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->error($model,'note'); ?>
+		</div>
+	</div>
+
+
+	<div class="control-group">
+		<?php echo $form->labelEx($model,'offer_date',array('class'=>"control-label")); ?>
+		<div class="controls">
+		<?php echo $form->dateField($model,'offer_date',array('class'=>"input-xlarge",)); ?>
+		<?php echo $form->error($model,'offer_date'); ?>
+		</div>
+	</div>
+<?php
+if (!$model->isNewRecord ){
+?>
+	<div class="control-group">
+		<?php echo $form->labelEx($model,'offer_status',array('class'=>"control-label")); ?>
+		<div class="controls">
+		<?php echo $form->dropDownList($model,'offer_status',array('WAITING'=>"Bekliyor",'APPROVED'=>"Onaylandı",'REJECTED'=>"Kabul Edilmedi")); ?>
+		<?php echo $form->error($model,'offer_status'); ?>
+		</div>
+	</div>
+<?php } ?>
+
+	<div class="form-actions">
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Kaydet' : 'Güncelle',array('class'=>"btn btn-primary")); ?>
+	</div>
+    </fieldset>
+<?php $this->endWidget(); ?>
+
+</div>
+</div>

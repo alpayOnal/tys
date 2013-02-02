@@ -3,8 +3,8 @@
 /* @var $model ProductGroup */
 
 $this->breadcrumbs=array(
-	'Product Groups'=>array('index'),
-	'Manage',
+	'Ürün Grupları'=>array('admin'),
+	'Yönetim',
 );
 
 $this->menu=array(
@@ -26,29 +26,47 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Product Groups</h1>
-
 <p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
+  <?=Cms::link("Yeni Grup Oluştur", "/productgroup/create")?>
 </p>
+<br />
+<div class="widget-block">
+  <div class="widget-head">
+    <h5>Ürün Grupları</h5>
+  </div>
+  <div class="widget-content">
+    <div class="widget-box">
 
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
-<div class="search-form" style="display:none">
-<?php $this->renderPartial('_search',array(
-	'model'=>$model,
-)); ?>
-</div><!-- search-form -->
-
-<?php $this->widget('zii.widgets.grid.CGridView', array(
+<?php $this->widget('DataGrid', array(
 	'id'=>'product-group-grid',
+  'itemsCssClass' => 'data-tbl-boxy table',
+  'summaryText' => "{count} adet kayıt bulundu",
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
+  'template' => '{items}{pager}',
+  'cssFile' => Yii::app()->request->baseUrl . '/interface/css/gridview/styles.css',
 	'columns'=>array(
-		'group_id',
 		'group_name',
-		array(
-			'class'=>'CButtonColumn',
-		),
+
+  array('class' => 'GridButton', 'template' => '{edit}{remove}{delete}',
+    'buttons' => array(
+        'edit' => array('label' => 'Düzenle', 'iclass' => '',
+            'url' => 'Yii::app()->createUrl("productgroup/update", array("id"=>$data->group_id))',
+            'options' => array('class' => 'btn')),
+
+        'remove' => array('label' => '', 'iclass' => 'icon-trash icon-white',
+            'url' => 'Yii::app()->createUrl("productgroup/delete", array("id"=>$data->group_id))',
+            'options' => array('class' => 'btn btn-danger delete')),
+))
 	),
 )); ?>
+
+</div>
+  </div>
+</div>
+
+<script type="text/javascript" >
+$(document).ready(function(){
+  $('#customer-grid a[title=Delete]').hide();
+});
+</script>
