@@ -83,4 +83,4 @@ if (!$model->isNewRecord ){
 <?php $this->endWidget(); ?>
 
 </div>
-</div><script>$(document).ready(function() {	jQuery.ajax({		'type':'POST',		'url':'/index.php/customer/stafflist',		'cache':false,		'data':jQuery('#offer-form').serialize(),		'success':function(html){			jQuery("#Offer_customer_staff").html(html);			var staffId=$('input[name="staffId"]').val();			$('#Offer_customer_staff').val("1");		}	});	 });</script>
+</div><script>$(document).ready(function() {	jQuery.ajax({		'type':'POST',		'url':'/index.php/customer/stafflist',		'cache':false,		'data':jQuery('#offer-form').serialize(),		'success':function(html){			jQuery("#Offer_customer_staff").html(html);			var staffId=$('input[name="staffId"]').val();			$('#Offer_customer_staff').val(staffId);		}	});	 });</script>

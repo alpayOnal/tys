@@ -30,7 +30,7 @@ class UserIdentity extends CUserIdentity
 			$this->errorCode=self::ERROR_USERNAME_INVALID;
 		else if($user['password']!==md5($this->password))
 			$this->errorCode=self::ERROR_PASSWORD_INVALID;
-		else{      echo "ada";die();
+		else{      
 		    $this->_id=$user['member_id'];
 		    $this->setState('memberid', $user['member_id']);
 		    $this->setState('name', $user['name']);
@@ -40,4 +40,4 @@ class UserIdentity extends CUserIdentity
 
 		return !$this->errorCode;
 	}
-}
+}
